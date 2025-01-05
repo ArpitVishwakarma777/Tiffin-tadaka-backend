@@ -1,7 +1,7 @@
 const { handleGetTestimonialUserData } = require("../controllers/testimonial");
 const  handlePatchProfileData = require("../controllers/profile.js");
 const  {handleGetContactData,handlePostContactData} = require("../controllers/contactdata.js");
-
+const {handleGetOverview,handlePostOverview}= require('../controllers/tiffinOverview.js')
 const {
   handlePost,
   handleGetMonthlyData,
@@ -14,6 +14,8 @@ const express = require("express");
 const { createOrder, verifyPayment } = require("../controllers/payment.js");
 const router = express.Router();
 router.get("/testimonial/customer", handleGetTestimonialUserData);
+router.get("/tiffinOverview",handleGetOverview)
+router.post("/tiffinOverview",handlePostOverview)
 router.get("/card", handleGetCardData);
 router.patch('/profile',handlePatchProfileData)
 
