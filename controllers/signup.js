@@ -9,9 +9,10 @@ async function handlePostUserData(req, res) {
       name: name,
       email: email,
       address: "Harda , Madhya Pradesh",
-      mobile: (+91),
-      img:'https://res.cloudinary.com/drzc94rvk/image/upload/v1735234416/client_l1mfj3.jpg',
+      mobile: null,
+      img: "https://res.cloudinary.com/drzc94rvk/image/upload/v1735234416/client_l1mfj3.jpg",
       subscription: [],
+      cart: [],
     });
   } catch (e) {
     console.log("error on create user: ", e);

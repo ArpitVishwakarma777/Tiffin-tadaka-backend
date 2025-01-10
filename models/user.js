@@ -25,6 +25,9 @@ const userSchema = new mongoose.Schema({
   subscription: {
     type: Array,
   },
+  addedCarts:{
+    type:Array
+  }
 });
 
 const User = mongoose.model("user", userSchema);

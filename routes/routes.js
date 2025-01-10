@@ -9,9 +9,11 @@ const {
   handleGetCardData,
   handlePetchOrderdata
 } = require("../controllers/menu");
+const {handlePatchData,handleRemoveCartData,handleRemoveAllCarts} = require('../controllers/addToCart.js')
 const{ handlePostUserData,handleGetUserData }= require("../controllers/signup.js");
 const express = require("express");
 const { createOrder, verifyPayment } = require("../controllers/payment.js");
+const { handleManageOrders } = require("../controllers/manageOrders.js");
 const router = express.Router();
 router.get("/testimonial/customer", handleGetTestimonialUserData);
 router.get("/tiffinOverview",handleGetOverview)
@@ -21,6 +23,11 @@ router.patch('/profile',handlePatchProfileData)
 
 const menuDataRouter = express.Router();
 menuDataRouter.patch('/order',handlePetchOrderdata)
+menuDataRouter.patch('/addToCart',handlePatchData );
+menuDataRouter.put('/removeCart',handleRemoveCartData );
+menuDataRouter.patch('/handleRemoveAllCarts',handleRemoveAllCarts );
+menuDataRouter.patch('/manageOrders',handleManageOrders );
+
 menuDataRouter.post("/card", handlePost);
 menuDataRouter.get("/oneDayCard", handleGetCardData);
 menuDataRouter.get("/weeklyCard", handleGetWeeklyData);
