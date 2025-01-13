@@ -10,7 +10,7 @@ const express = require("express");
 const app = express();
 app.use(cors());
 app.use(express.json());
-const dbUrl = process.env.MONGO_URI;
+const dbUrl = "mongodb+srv://ArpitVishwakarma:root12345@cluster0.jmm11.mongodb.net/tiffin-tadaka";
 connection(dbUrl)
   .then(() => {
     console.log("Connection is stablisted with DB ");
