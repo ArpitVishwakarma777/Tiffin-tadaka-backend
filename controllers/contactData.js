@@ -10,4 +10,5 @@ async function handlePostContactData(req, res) {
     phone: 8103137309,
   });
 }
+
 module.exports = { handleGetContactData, handlePostContactData };
