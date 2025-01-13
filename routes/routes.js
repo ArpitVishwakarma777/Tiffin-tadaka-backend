@@ -1,6 +1,6 @@
 const { handleGetTestimonialUserData } = require("../controllers/testimonial");
 const  handlePatchProfileData = require("../controllers/profile.js");
-const  {handleGetContactData,handlePostContactData} = require("../controllers/contactdata.js");
+const  {handleGetContactData,handlePostContactData} = require("../controllers/contactData.js");
 const {handleGetOverview,handlePostOverview}= require('../controllers/tiffinOverview.js')
 const {
   handlePost,
