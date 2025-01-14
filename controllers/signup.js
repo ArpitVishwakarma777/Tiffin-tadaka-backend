@@ -20,10 +20,10 @@ async function handlePostUserData(req, res) {
 }
 async function handleGetUserData(req, res) {
   const { uid } = req.query;
-  console.log("backend uid :", uid);
+
 
   const user = await User.findOne({ uid: uid });
-  console.log("user : ",user);
+
   
   res.status(200).json(user);
 }

@@ -26,14 +26,13 @@ const handleRemoveCartData = async (req, res) => {
 };
 const handleRemoveAllCarts = async (req, res) => {
   const {uid}  = req.body;
-  console.log("id is : ",uid);
+  
   
   try {
     const response = await User.updateOne(
       { uid: uid }, // Filter condition
       { $set: { addedCarts: [] } } // `addedCarts` field ko empty array set karna
     );
-    console.log(response);
 
     res.status(200).json(response);
   } catch (e) {

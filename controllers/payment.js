@@ -1,8 +1,8 @@
-require('dotenv').config(); // Load environment variables from .env file
+require('dotenv').config(); 
 const Razorpay = require("razorpay");
 const crypto = require("crypto");
 
-// Log the environment variable to verify it's loaded correctly
+
 console.log('key is a:',process.env.RAZORPAY_KEY_SECRET );
 
 const razorpay = new Razorpay({
@@ -12,11 +12,9 @@ const razorpay = new Razorpay({
 // Create Order
 const createOrder = async (req, res) => {
   const { amount, currency } = req.body;
-// console.log(
-//   "amount: " + amount + " currency: " + currency
-// )
+
   try {
-    // Validate input
+ 
     if (!amount  || amount <= 0) {
       return res.status(400).json({ success: false, message: "Invalid amount" });
     }
@@ -24,9 +22,9 @@ const createOrder = async (req, res) => {
       return res.status(400).json({ success: false, message: "Invalid currency" });
     }
 
-    // Create Razorpay Order
+  
     const order = await razorpay.orders.create({
-      amount: amount * 100, // Convert amount to paise
+      amount: amount * 100, 
       currency,
     });
 
@@ -44,8 +42,6 @@ const createOrder = async (req, res) => {
 // Verify Payment
 const verifyPayment = (req, res) => {
   const { razorpay_order_id, razorpay_payment_id, razorpay_signature } = req.body;
-console.log( razorpay_order_id," ", razorpay_payment_id," ", razorpay_signature);
-
   try {
     const generated_signature = crypto
       .createHmac("sha256",process.env.RAZORPAY_KEY_SECRET)

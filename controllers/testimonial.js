@@ -3,7 +3,7 @@ const TESTIMONIAL = require("../models/testimonial");
 async function handleGetTestimonialUserData(req, res) {
   try {
     const data = await TESTIMONIAL.find({});
-    // console.log(data);
+   
 
     res.status(200).json(data);
   } catch (e) {

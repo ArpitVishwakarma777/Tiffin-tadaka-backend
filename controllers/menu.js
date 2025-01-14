@@ -16,7 +16,7 @@ async function handleGetCardData(req, res) {
 async function handleGetWeeklyData(req, res) {
   try {
     const data = await TiffinWeekly.find({});
-    // console.log(data);
+  
 
     res.status(200).json(data);
   } catch (e) {
@@ -27,7 +27,7 @@ async function handleGetWeeklyData(req, res) {
 async function handleGetMonthlyData(req, res) {
   try {
     const data = await TiffinMonthly.find({});
-    // console.log(data);
+  
 
     res.status(200).json(data);
   } catch (e) {
@@ -46,7 +46,7 @@ async function handlePetchOrderdata(req, res) {
     orderSummary,
     paymentMethod,
   } = req.body;
-console.log("hello order: ",orderid);
+
 
   if (uid) {
     const response = await User.updateOne(

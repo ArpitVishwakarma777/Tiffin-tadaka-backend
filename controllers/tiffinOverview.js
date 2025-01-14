@@ -18,7 +18,7 @@ async function handlePostOverview(req, res) {
 async function handleGetOverview(req, res) {
     try {
         const data = await Overview.find({});
-        // console.log(data);
+       ;
     
         res.status(200).json(data);
       } catch (e) {
