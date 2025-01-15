@@ -4,9 +4,9 @@ async function handlePostUserData(req, res) {
   const uid = req.body.userId;
   const email = req.body.email;
   try {
-    await User.create({
+    const response = await User.create({
       uid: uid,
-      name: name,
+      name:name,
       email: email,
       address: "Harda , Madhya Pradesh",
       mobile: null,
@@ -14,25 +14,23 @@ async function handlePostUserData(req, res) {
       subscription: [],
       cart: [],
     });
+    res.status(201).json("data is created on mongodb");
   } catch (e) {
     console.log("error on create user: ", e);
   }
 }
 async function handleGetUserData(req, res) {
-  try{
-  const { uid } = req.query;
+  try {
+    const { uid } = req.query;
 
-  const user = await User.findOne({ uid: uid });
-  if(user){
-    res.status(200).json(user);
-  }else{
-    res.status(404).json({message: "User not found"})
-  }
- 
-
-  }catch(e){
+    const user = await User.findOne({ uid: uid });
+    if (user) {
+      res.status(200).json(user);
+    } else {
+      res.status(404).json({ message: "User not found" });
+    }
+  } catch (e) {
     console.log(e);
-    
   }
 }
 
